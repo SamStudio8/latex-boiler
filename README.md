@@ -3,14 +3,17 @@ latex-boilerplate
 
 A thinned down version of [Krishna Kumar's PhD Thesis Template](https://github.com/kks32/phd-thesis-template).
 
-CUED PhD Thesis Template
-========================
+## Usage
+
+    ./compile.sh compile document
+
+## CUED PhD Thesis Template
 > A PhD thesis LaTeX template for Cambridge University Engineering Department.
 
-## Author(s)
+### Author(s)
 *   Krishna Kumar
 
-## License
+### License
 
 The MIT License (MIT)
 
