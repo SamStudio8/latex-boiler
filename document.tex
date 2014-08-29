@@ -1,0 +1,235 @@
+% ******************************* PhD Thesis Template **************************
+% Please have a look at the README.md file for info on how to use the template
+
+\documentclass[a4paper,times,numbered,print,index,oneside,PageStyleII,parskip=full]{Classes/PhDThesisPSnPDF}
+
+% ******************************************************************************
+% ******************************* Class Options ********************************
+% *********************** See README for more details **************************
+% ******************************************************************************
+
+% `a4paper'(The University of Cambridge PhD thesis guidelines recommends a page
+% size a4 - default option) or `a5paper': A5 Paper size is also allowed as per
+% the Cambridge University Engineering Deparment guidelines for PhD thesis
+%
+% `11pt' or `12pt'(default): Font Size 10pt is NOT recommended by the University
+% guidelines
+%
+% `oneside' or `twoside'(default): Printing double side (twoside) or single
+% side.
+%
+% `print': Use `print' for print version with appropriate margins and page
+% layout. Leaving the options field blank will activate Online version.
+%
+% `index': For index at the end of the thesis
+%
+% `draft': For draft mode without loading any images (same as draft in book)
+%
+% `abstract': To generate only the title page and abstract page with
+% dissertation title and name, to submit to the Student Registry
+%
+% ************************* Custom Page Margins ********************************
+%
+% `custommargin`: Use `custommargin' in options to activate custom page margins,
+% which can be defined in the preamble.tex. Custom margin will override
+% print/online margin setup.
+%
+% *********************** Choosing the Fonts in Class Options ******************
+%
+% `times' : Times font with math support. ( The Cambridge University guidelines
+% recommend using times)
+%
+% `fourier': Utopia Font with Fourier Math font
+%
+% `customfont': Use `customfont' option in the document class and load the
+% package in the preamble.tex
+%
+% default or leave empty: `Latin Modern' font will be loaded.
+%
+% ********************** Choosing the Bibliography style ***********************
+%
+% `authoryear': For author-year citation eg., Krishna (2013)
+%
+% `numbered': (Default Option) For numbered and sorted citation e.g., [1,5,2]
+%
+% `custombib': Define your own bibliography style in the `preamble.tex' file.
+% `\RequirePackage[square, sort, numbers, authoryear]{natbib}'
+%
+% **************************** Choosing the Page Style *************************
+%
+% `default (leave empty)': For Page Numbers in Header (Left Even, Right Odd) and
+% Chapter Name in Header (Right Even) and Section Name (Left Odd). Blank Footer.
+%
+% `PageStyleI': Chapter Name next & Page Number on Even Side (Left Even).
+% Section Name & Page Number in Header on Odd Side (Right Odd). Footer is empty.
+%
+% `PageStyleII': Chapter Name on Even Side (Left Even) in Header. Section Number
+% and Section Name in Header on Odd Side (Right Odd). Page numbering in footer
+
+
+% ********************************** Preamble **********************************
+% Preamble: Contains packages and user-defined commands and settings
+\input{Preamble/preamble}
+
+% ************************ Thesis Information & Meta-data **********************
+%% The title of the thesis
+\title{}
+%\texorpdfstring is used for PDF metadata. Usage:
+%\texorpdfstring{LaTeX_Version}{PDF Version (non-latex)} eg.,
+%\texorpdfstring{$sigma$}{sigma}
+
+%% The full name of the author
+\author{}
+
+%% Department (eg. Department of Engineering, Maths, Physics)
+\dept{}
+
+%% University and Crest
+\university{Aberystwyth University}
+\crest{\includegraphics[width=0.5\textwidth]{University_Crest}}
+
+%% You can redefine the submission text:
+% Default as per the University guidelines: This dissertation is submitted for
+% the degree of Doctor of Philosophy
+%\renewcommand{\submissiontext}{change the default text here if needed}
+
+%% Full title of the Degree
+\degree{}
+
+%% College affiliation (optional)
+\college{}
+
+%% Submission date
+\degreedate{}
+
+%% Meta information
+\subject{} \keywords{}
+
+
+
+% ***************************** Abstract Separate ******************************
+% To printout only the titlepage and the abstract with the PhD title and the
+% author name for submission to the Student Registry, use the abstract option in
+% the document class.
+
+\ifdefineAbstract
+ \includeonly{Extra/abstract}
+\else
+\fi
+
+
+% ******************************** Front Matter ********************************
+\begin{document}
+
+
+\frontmatter
+
+\begin{titlepage}
+\begin{center}
+
+% Upper part of the page. The '~' is needed because \\
+% only works if a paragraph has started.
+\includegraphics[width=0.2\textwidth]{University_Crest}~\\[1cm]
+
+\textsc{\huge Aberystwyth University}\\
+\textsc{Degree}\\
+\textsc{\Large Module}\\[1.5cm]
+
+% Title
+\HRule \\[0.4cm]
+{ \huge \bfseries Title \\[0.5cm] }
+\HRule \\[1.5cm]
+
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+    \begin{flushleft} \large
+        \emph{Author:}\\
+        Author \small{uid}
+    \end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+    \begin{flushright} \large
+        \emph{Supervisor:} \\
+        Dr.~Supervisor \small{uid}
+    \end{flushright}
+\end{minipage}
+
+
+\vfill
+% Bottom of the page
+
+\vskip 0.5cm
+
+\large{Date}
+
+\end{center}
+\end{titlepage}
+
+%TC:ignore
+
+% Disable as necessary
+\include{Extra/declaration}
+\include{Extra/acknowledgement}
+\include{Extra/abstract}
+
+%TC:endignore
+
+% *********************** Adding TOC and List of Figures ***********************
+
+%TC:ignore
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+% \printnomenclature[space] space can be set as 2.5cm between symbol and
+% description
+%\printnomencl
+
+%TC:endignore
+
+% ******************************** Main Matter *********************************
+\mainmatter
+
+%TC:group minted 0 0
+% Ignore codeblocks for texcount
+
+\include{Document/document}
+
+% ********************************** Back Matter *******************************
+% ********************************** Bibliography ******************************
+%\backmatter
+
+\begin{spacing}{0.9}
+
+%TC:ignore
+
+% Bibliography style previews: http://nodonn.tipido.net/bibstyle.php
+%\bibliographystyle{apalike}
+%\bibliographystyle{plainnat} % use this to have URLs listed in References
+\bibliographystyle{IEEEannot-nosort}
+%\bibliographystyle{IEEEtran}
+
+\cleardoublepage
+\begin{multicols*}{2}
+    \small{\bibliography{References/references}} % Path to your References.bib file
+\end{multicols*}
+%TC:endignore
+
+
+\end{spacing}
+
+% ********************************** Appendices ********************************
+
+\begin{appendices} % Using appendices environment for more functunality
+
+%TC:ignore
+\include{Appendix/appendix}
+%TC:endignore
+
+\end{appendices}
+
+% *************************************** Index ********************************
+%\printthesisindex % If index is present
+
+\end{document}
