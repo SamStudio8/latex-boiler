@@ -3,6 +3,13 @@ latex-boilerplate
 
 A thinned down version of [Krishna Kumar's PhD Thesis Template](https://github.com/kks32/phd-thesis-template).
 
+## Dependencies
+
+    texcount hunspell
+
+Set path to texcount in `compile.sh`
+
+
 ## Usage
 
     ./compile.sh compile document
