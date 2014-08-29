@@ -10,7 +10,6 @@
 *~*
 *.nlo*
 *make*
-*.d*
 *.btmp*
 *.fls*
 *.glo*
